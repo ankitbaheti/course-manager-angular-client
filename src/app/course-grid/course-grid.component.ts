@@ -21,8 +21,8 @@ export class CourseGridComponent implements OnInit {
   sections = [];
   sectionCourse = [];
   type;
-  sectionEnrolled =[] ;
-  anonymous;
+  sectionEnrolled = [] ;
+  anonymous = true;
 
   logout() {
     this.userService
