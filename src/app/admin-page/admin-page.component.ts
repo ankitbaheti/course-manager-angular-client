@@ -13,8 +13,8 @@ export class AdminPageComponent implements OnInit {
               private sectionService: SectionServiceClient) { }
 
   courses = [];
-  sectionName;
-  seats;
+  sectionName = '';
+  seats = 10;
   courseId;
   sections = [];
   clicked = false;
