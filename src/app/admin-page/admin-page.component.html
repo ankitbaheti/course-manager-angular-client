@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <h1>Admin Page</h1>
+
+  <a routerLink="/home"
+      class="btn btn-primary m-2">Home</a>
+  <a routerLink="/profile"
+      class="btn btn-primary m-2">Profile</a>
+
+  <div class="row">
+    <div class="col-3">
+      <ul class="list-group">
+        <li class="list-group-item bg-dark active">Courses</li>
+        <li *ngFor="let course of courses"
+            class="list-group-item">
+          {{course.title}}
+          <button (click)="loadSections(course.id)"
+                  class="btn btn-primary">
+            Sections
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="col-9">
+
+      <ul class="list-group">
+        <li class="list-group-item bg-dark active">Section</li>
+        <li class="list-group-item" *ngIf="clicked === true">
+          <div>
+            <input [(ngModel)]="sectionName"
+                   placeholder="Section Name"
+                   class="form-control">
+            <input [(ngModel)]="seats"
+                   placeholder="Seats available"
+                   class="form-control">
+            <button (click)="createSection(sectionName, seats)"
+                    class="btn btn-success btn-block">
+              Add Section
+            </button>
+          </div>
+        </li>
+        <li *ngFor="let section of sections" class="list-group-item">
+          Name: {{section.name}},
+          Seats Left: {{section.seats}}
+          <button (click)="deleteSection(section)"
+                  class="btn btn-danger">Delete</button>
+          <button (click)="populate(section)"
+                  class="btn btn-primary">Edit</button>
+          <button (click)="updateSection(section._id, sectionName, seats)"
+                  class="btn btn-secondary">Update</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

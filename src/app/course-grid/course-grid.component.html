@@ -1,0 +1,54 @@
+<div class="row container-fluid">
+  <a *ngIf="anonymous === true"
+     class="btn btn-primary m-2"
+     routerLink="/login">Login</a>
+
+  <a *ngIf="anonymous === false"
+     class="btn btn-primary m-2"
+     routerLink="/profile">Profile</a>
+
+  <a *ngIf="anonymous === true"
+     class="btn btn-primary m-2"
+     routerLink="/register">Register</a>
+
+  <a *ngIf="anonymous === false"
+     class="btn btn-danger m-2 text-white"
+     (click)="logout()">Logout</a>
+</div>
+
+
+<div *ngIf="type === 'Student'">
+  <h2>Courses Enrolled In</h2>
+
+  <ul class="list-group">
+    <li *ngFor="let section of sectionEnrolled" class="list-group-item">
+      Course: {{section.courseName}} <br>
+      Section: {{section.sectionName}}
+      Seats Left: {{section.sectionSeats}}<br>
+      Grade: {{section.grade}}
+    </li>
+  </ul>
+</div>
+
+<h2>Course Grid ({{courses.length}})</h2>
+
+<div class="row">
+  <div *ngFor="let course of courses" class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{course.title}}
+        </h5>
+        <a routerLink="/course/{{course.id}}"
+           class="btn btn-primary m-2">
+          Explore Course
+        </a>
+        <a routerLink="/course/{{course.id}}/section"
+           class="btn btn-primary m-2"
+           *ngIf="anonymous === false">
+          View Section
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

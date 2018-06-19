@@ -1,0 +1,41 @@
+<div *ngFor="let widget of widgets">
+  <div class="list-group" [ngSwitch]="widget.widgetType">
+    <div class="list-group-item" *ngSwitchCase="'Heading'">
+      <div [ngSwitch]="widget.size">
+        <h1 *ngSwitchCase="'1'">{{widget.text}}</h1>
+        <h2 *ngSwitchCase="'2'">{{widget.text}}</h2>
+        <h3 *ngSwitchCase="'3'">{{widget.text}}</h3>
+        <h4 *ngSwitchCase="'4'">{{widget.text}}</h4>
+        <h5 *ngSwitchCase="'5'">{{widget.text}}</h5>
+        <h6 *ngSwitchCase="'6'">{{widget.text}}</h6>
+      </div>
+    </div>
+    <div class="list-group-item" *ngSwitchCase="'Link'">
+      <a href="{{widget.href}}">{{widget.text}}</a>
+    </div>
+    <div class="list-group-item" *ngSwitchCase="'Paragraph'">
+      {{widget.text}}
+    </div>
+    <div class="list-group-item" *ngSwitchCase="'Image'">
+      <img src={{widget.src}}/>
+    </div>
+    <div class="list-group-item" *ngSwitchCase="'List'">
+      <div [ngSwitch]="widget.listType">
+        <div *ngSwitchCase="'ordered'">
+          <ol class="list-group">
+            <li *ngFor="let item of widget.text.split('\n')">
+              {{item}}
+            </li>
+          </ol>
+        </div>
+        <div *ngSwitchCase="'unordered'">
+          <ul class="list-group">
+            <li *ngFor="let item of widget.text.split('\n')">
+              {{item}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

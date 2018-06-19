@@ -1,0 +1,53 @@
+<div class="container-fluid">
+
+
+  <a routerLink="/home" class="btn btn-primary m-2">Home</a>
+  <a *ngIf="type === 'Admin'"
+     class="btn btn-dark text-white m-2"
+     routerLink="/admin">Admin Page</a>
+  <a (click)="logout()"
+     class="btn btn-danger m-2 text-white">Logout</a>
+
+  <h1>Profile</h1>
+
+  <input [(ngModel)]="username"
+         placeholder="username"
+         class="form-control"/>
+  <input [(ngModel)]="firstName"
+         placeholder="first name"
+         class="form-control"/>
+  <input [(ngModel)]="lastName"
+         placeholder="lastName"
+         class="form-control"/>
+  <input [(ngModel)]="email"
+         placeholder="email"
+         class="form-control"/>
+  <input [(ngModel)]="phone"
+         placeholder="phone"
+         class="form-control"/>
+  <input [(ngModel)]="address"
+         placeholder="address"
+         class="form-control"/>
+  <button (click)="update()"
+          class="btn btn-primary btn-block">
+    Update
+  </button>
+  <div *ngIf="type === 'Student'">
+    <h2>Sections ({{sectionEnrolled.length}})</h2>
+
+    <ul class="list-group">
+      <li *ngFor="let section of sectionEnrolled" class="list-group-item">
+        Course: {{section.courseName}} <br>
+        Section: {{section.sectionName}}
+        Seats Left: {{section.sectionSeats}} <br>
+        Grade: {{section.grade}} <br>
+        <button (click)="unenroll(section.sectionId, section.enrollmentId)"
+                class="btn btn-danger">Unenroll</button>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+</div>
