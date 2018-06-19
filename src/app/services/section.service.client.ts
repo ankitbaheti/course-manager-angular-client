@@ -1,9 +1,9 @@
 export class SectionServiceClient {
 
-  SECTION_URL = 'http://localhost:4000/api/course/COURSEID/section';
+  SECTION_URL = 'mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/course/COURSEID/section';
 
   findSectionsForStudent() {
-    const url = 'http://localhost:4000/api/student/section';
+    const url = 'mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/student/section';
     return fetch(url, {
       credentials: 'include'
     })
@@ -11,7 +11,7 @@ export class SectionServiceClient {
   }
 
   enrollStudentInSection(sectionId) {
-    const url = 'http://localhost:4000/api/section/' + sectionId + '/enrollment';
+    const url = 'mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/section/' + sectionId + '/enrollment';
     return fetch(url, {
       method: 'post',
       credentials: 'include'
@@ -19,7 +19,7 @@ export class SectionServiceClient {
   }
 
   unEnrollStudent(sectionId, enrollmentId){
-    const url = 'http://localhost:4000/api/section/' + sectionId + '/enrollment/' + enrollmentId;
+    const url = 'mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/section/' + sectionId + '/enrollment/' + enrollmentId;
     return fetch(url, {
       method: 'delete'
     });
@@ -31,7 +31,7 @@ export class SectionServiceClient {
   }
 
   deleteSection(sectionId) {
-    const url = 'http://localhost:4000/api/section/' + sectionId;
+    const url = 'mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/section/' + sectionId;
     return fetch(url, {
       method: 'delete'
     });
@@ -42,7 +42,7 @@ export class SectionServiceClient {
       name: sectionName,
       seats: seats
     }
-    const url = 'http://localhost:4000/api/section/' + sectionId;
+    const url = 'mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/section/' + sectionId;
     return fetch(url, {
       method: 'put',
       body: JSON.stringify(newSection),
