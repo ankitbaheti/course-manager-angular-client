@@ -1,7 +1,7 @@
 export class UserServiceClient {
 
   findUserById(userId) {
-    return fetch('mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/user/' + userId)
+    return fetch('https://webdev-summer1-nodejs-server.herokuapp.com/api/user/' + userId)
       .then(response => response.json());
   }
 
@@ -10,7 +10,7 @@ export class UserServiceClient {
       username: username,
       password: password
     };
-    return fetch('mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/login', {
+    return fetch('https://webdev-summer1-nodejs-server.herokuapp.com/api/login', {
       method: 'post',
       body: JSON.stringify(credentials),
       credentials: 'include',
@@ -29,7 +29,7 @@ export class UserServiceClient {
       phone: phone,
       address: address
     };
-    return fetch('mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/update', {
+    return fetch('https://webdev-summer1-nodejs-server.herokuapp.com/api/update', {
       method: 'put',
       body: JSON.stringify(newUser),
       credentials: "include",
@@ -40,14 +40,14 @@ export class UserServiceClient {
   }
 
   logout() {
-    return fetch('mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/logout', {
+    return fetch('https://webdev-summer1-nodejs-server.herokuapp.com/api/logout', {
       method: 'post',
       credentials: 'include'
     });
   }
 
   profile() {
-    return fetch('mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/profile',
+    return fetch('https://webdev-summer1-nodejs-server.herokuapp.com/api/profile',
       {
         credentials: 'include', // include, same-origin, *omit
       })
@@ -65,7 +65,7 @@ export class UserServiceClient {
       password: password,
       type: type
     };
-    return fetch('mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/user', {
+    return fetch('https://webdev-summer1-nodejs-server.herokuapp.com/api/user', {
       body: JSON.stringify(user),
       credentials: 'include', // include, same-origin, *omit
       method: 'post',

@@ -1,9 +1,9 @@
 export class SectionServiceClient {
 
-  SECTION_URL = 'mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/course/COURSEID/section';
+  SECTION_URL = 'https://webdev-summer1-nodejs-server.herokuapp.com/api/course/COURSEID/section';
 
   findSectionsForStudent() {
-    const url = 'mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/student/section';
+    const url = 'https://webdev-summer1-nodejs-server.herokuapp.com/api/student/section';
     return fetch(url, {
       credentials: 'include'
     })
@@ -11,7 +11,7 @@ export class SectionServiceClient {
   }
 
   enrollStudentInSection(sectionId) {
-    const url = 'mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/section/' + sectionId + '/enrollment';
+    const url = 'https://webdev-summer1-nodejs-server.herokuapp.com/api/section/' + sectionId + '/enrollment';
     return fetch(url, {
       method: 'post',
       credentials: 'include'
@@ -19,7 +19,7 @@ export class SectionServiceClient {
   }
 
   unEnrollStudent(sectionId, enrollmentId){
-    const url = 'mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/section/' + sectionId + '/enrollment/' + enrollmentId;
+    const url = 'https://webdev-summer1-nodejs-server.herokuapp.com/api/section/' + sectionId + '/enrollment/' + enrollmentId;
     return fetch(url, {
       method: 'delete'
     });
@@ -31,7 +31,7 @@ export class SectionServiceClient {
   }
 
   deleteSection(sectionId) {
-    const url = 'mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/section/' + sectionId;
+    const url = 'https://webdev-summer1-nodejs-server.herokuapp.com/api/section/' + sectionId;
     return fetch(url, {
       method: 'delete'
     });
@@ -42,7 +42,7 @@ export class SectionServiceClient {
       name: sectionName,
       seats: seats
     }
-    const url = 'mongodb://heroku_1mhtcpr8:3aeb82h2mt0t32mlioe29ma9mv@ds261440.mlab.com:61440/heroku_1mhtcpr8/api/section/' + sectionId;
+    const url = 'https://webdev-summer1-nodejs-server.herokuapp.com/api/section/' + sectionId;
     return fetch(url, {
       method: 'put',
       body: JSON.stringify(newSection),
